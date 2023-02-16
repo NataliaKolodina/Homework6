@@ -5,15 +5,27 @@
 Console.Clear();
 Console.WriteLine("Введите количество чисел: ");
 int m = int.Parse(Console.ReadLine());
-AddNums(m);
+int[] arr = GetArray(m);
+Console.Write(String.Join(", ", arr));
+Console.Write($" -> {Counter(arr)}");
 
-int[] AddNums(int[] array, M)
+
+int[] GetArray(int num)
 {
-    for(int i = 1; i <= M; i++)
+int [] array = new int[num];
+for (int i = 0; i < num; i++)
+{
+    array[i] = new Random().Next(-100, 101);
+}
+return array;
+}
+
+int Counter(int[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
     {
-    Console.WriteLine("Введите число: ");
-    int num = int.Parse(Console.ReadLine());
-    Console.Write($"{num}, ");
+        if (array[i]>0) count++;
     }
-    return num;
+    return count;
 }
