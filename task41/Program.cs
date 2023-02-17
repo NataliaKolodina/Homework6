@@ -3,11 +3,10 @@
 // 1, -7, 567, 89, 223-> 3
 
 Console.Clear();
-Console.WriteLine("Введите количество чисел: ");
-int m = int.Parse(Console.ReadLine());
+int m = InputNum("Введите количество чисел: ");
 int[] arr = GetArray(m);
 PrintArray(arr);
-Console.Write($" -> {Counter(arr)}");
+Console.Write($"-> {Counter(arr)}");
 
 int InputNum(string message)
 {
