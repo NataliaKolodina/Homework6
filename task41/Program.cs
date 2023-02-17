@@ -6,26 +6,41 @@ Console.Clear();
 Console.WriteLine("Введите количество чисел: ");
 int m = int.Parse(Console.ReadLine());
 int[] arr = GetArray(m);
-Console.Write(String.Join(", ", arr));
+PrintArray(arr);
 Console.Write($" -> {Counter(arr)}");
 
-
-int[] GetArray(int num)
+int InputNum(string message)
 {
-int [] array = new int[num];
-for (int i = 0; i < num; i++)
-{
-    array[i] = new Random().Next(-100, 101);
-}
-return array;
+    Console.Write($"{message}: ");
+    int res = int.Parse(Console.ReadLine()!);
+    return res;
 }
 
-int Counter(int[] array)
+int[] GetArray(int size)
+{
+    int[] result = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        result[i] = InputNum("Введите число: ");
+    }
+    return result;
+}
+
+void PrintArray(int[] inArray)
+{
+    for (int i = 0; i < inArray.Length; i++)
+    {
+        Console.Write($"{inArray[i]}, ");
+    }
+}
+
+int Counter(int[] Array)
 {
     int count = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < Array.Length; i++)
     {
-        if (array[i]>0) count++;
+        if (Array[i] > 0)
+            count++;
     }
     return count;
 }
